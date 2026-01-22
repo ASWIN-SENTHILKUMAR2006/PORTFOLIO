@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aswin Senthilkumar | Java Backend Developer</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --text-main: #e2e8f0;
+            --text-dim: #94a3b8;
+            --spring-green: #6db33f;
+            --card-bg: #161e2d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            padding: 2.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fira Code', monospace;
+            font-weight: 700;
+            color: var(--spring-green);
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        header {
+            padding: 7rem 0 4rem;
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .badge {
+            background: rgba(109, 179, 63, 0.15);
+            color: var(--spring-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            width: fit-content;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            margin: 1.5rem 0;
+            font-weight: 700;
+        }
+
+        .highlight {
+            color: var(--spring-green);
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            max-width: 650px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 2px solid #334155;
+        }
+
+        .tech-pill {
+            display: inline-block;
+            padding: 0.45rem 0.9rem;
+            margin: 0.5rem 0.5rem 0 0;
+            background: #1e293b;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            font-size: 0.8rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::after {
+            content: "";
+            height: 1px;
+            background: #334155;
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section {
+            text-align: center;
+            background: #111827;
+            padding: 5rem 2rem;
+            border-radius: 24px;
+            border: 1px dashed #334155;
+        }
+
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">&lt;Aswin.java /&gt;</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="mailto:aswinsenthilkumarcse@gmail.com">Contact</a>
+            </div>
+        </nav>
+
+        <header id="about">
+            <div>
+                <span class="badge">Java Backend Developer</span>
+                <h1>Building real-world <span class="highlight">Spring Boot</span> backends.</h1>
+                <p class="tagline">
+                    Hi, I'm <b>Aswin Senthilkumar</b>, a Computer Science student focused on backend development using
+                    Java and Spring Boot. I design clean REST APIs, implement database-driven systems, and build
+                    scalable backend applications aligned with real-world business workflows.
+                </p>
+
+                <div style="margin-top: 2rem;">
+                    <span class="tech-pill">Java</span>
+                    <span class="tech-pill">Spring Boot</span>
+                    <span class="tech-pill">Spring Data JPA</span>
+                    <span class="tech-pill">REST APIs</span>
+                    <span class="tech-pill">MySQL</span>
+                    <span class="tech-pill">Git</span>
+                </div>
+            </div>
+
+            <!-- OPTIONAL IMAGE -->
+            <img src="Aswin_Senthilkumar.png" alt="Aswin Senthilkumar" class="profile-img">
+        </header>
+
+        <section id="projects">
+            <h2>Core Projects</h2>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <h3>EKART – E-Commerce Backend (Spring Boot)</h3>
+                    <p>
+                        Developing a real-world e-commerce backend using Spring Boot. Implemented core modules such as
+                        product management, cart handling, and order processing following layered architecture.
+                        Designed RESTful APIs using Spring Data JPA for ORM and database persistence, focusing on
+                        scalability and real-world business logic.
+                    </p>
+                    <span class="tech-pill">Spring Boot</span>
+                    <span class="tech-pill">JPA</span>
+                    <span class="tech-pill">MySQL</span>
+                </div>
+
+                <div class="project-card">
+                    <h3>Spring Boot Data JPA – CRUD Application</h3>
+                    <p>
+                        Backend application demonstrating CRUD operations using Spring Data JPA. Configured database
+                        connectivity, designed entity relationships, and implemented repository interfaces following
+                        Spring conventions to showcase strong understanding of ORM and backend structure.
+                    </p>
+                    <span class="tech-pill">Spring Data JPA</span>
+                    <span class="tech-pill">Hibernate</span>
+                    <span class="tech-pill">REST</span>
+                </div>
+
+                <div class="project-card">
+                    <h3>Spring Boot Full-Stack Web Application</h3>
+                    <p>
+                        Built a full-stack web application with Spring Boot backend and frontend integration.
+                        Developed REST endpoints, connected frontend components via HTTP request–response flow,
+                        and demonstrated complete data flow from database to user interface.
+                    </p>
+                    <span class="tech-pill">Spring Boot</span>
+                    <span class="tech-pill">Frontend Integration</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+
+            <div class="project-card">
+                <h3>Software Development Intern</h3>
+                <p>
+                    Worked on backend components in an enterprise environment. Assisted in developing and maintaining
+                    Windows Services using C# and .NET. Gained exposure to Microsoft Azure services and cloud-based
+                    workflows, while learning professional development practices, debugging, and deployment basics.
+                </p>
+            </div>
+
+            <div class="project-card" style="margin-top: 2rem;">
+                <h3>Institution-Level Software Project</h3>
+                <p>
+                    Contributed to institution-level software systems under the Technology Innovation Hub.
+                    Designed and developed a Discipline Management System using PHP, JavaScript, and MySQL with
+                    role-based access for faculty and administrators. Project planned for ERP integration,
+                    supporting real-world institutional workflows.
+                </p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>Get In Touch</h2>
+            <p style="margin-bottom: 1.5rem; color: var(--text-dim);">
+                Open to backend roles, internships, and Java-focused discussions.
+            </p>
+            <a href="mailto:aswinsenthilkumarcse@gmail.com"
+                style="font-size: 1.4rem; color: var(--spring-green); text-decoration: none;">
+                aswinsenthilkumarcse@gmail.com
+            </a>
+        </section>
+
+        <footer>
+            &copy; 2026 Aswin Senthilkumar · Java & Spring Boot
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
