@@ -4,260 +4,511 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aswin Senthilkumar | Java Backend Developer</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <title>Aswin Senthilkumar | Professional Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0b0f1a;
-            --text-main: #e2e8f0;
-            --text-dim: #94a3b8;
-            --spring-green: #6db33f;
-            --card-bg: #161e2d;
+            --bg: #030712;
+            --surface: rgba(9, 17, 30, 0.72);
+            --surface-strong: rgba(12, 23, 42, 0.92);
+            --text-main: #f8fafc;
+            --text-dim: #cbd5e1;
+            --accent: #7dd3fc;
+            --accent-soft: rgba(125, 211, 252, 0.15);
+            --border: rgba(148, 163, 184, 0.22);
+            --shadow: 0 20px 50px rgba(3, 7, 18, 0.55);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            background: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Typography & Custom Colors */
-        .logo {
-            font-family: 'Fira Code', monospace;
-            font-weight: 700;
-            color: var(--spring-green) !important;
-            font-size: 1.5rem;
-        }
-
-        .highlight {
-            color: var(--spring-green);
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 700;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .section-title::after {
-            content: "";
-            height: 1px;
-            background: #334155;
-            flex-grow: 1;
-            margin-left: 20px;
-        }
-
-        /* Custom Elements */
-        .custom-badge {
-            background: rgba(109, 179, 63, 0.15);
-            color: var(--spring-green);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            display: inline-block;
-        }
-
-        .profile-img {
+        #space-canvas {
+            position: fixed;
+            inset: 0;
             width: 100%;
-            max-width: 250px;
-            aspect-ratio: 1/1;
-            border-radius: 20px;
-            object-fit: cover;
-            border: 2px solid #334155;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 15% 10%, #0f274d 0%, #030712 45%, #02030a 100%);
         }
 
-        .tech-pill {
-            display: inline-block;
-            padding: 0.45rem 0.9rem;
-            margin: 0.5rem 0.5rem 0 0;
-            background: #1e293b;
-            border-radius: 6px;
-            border: 1px solid #334155;
+        .space-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                linear-gradient(145deg, rgba(10, 15, 28, 0.15) 0%, rgba(3, 7, 18, 0.8) 50%, rgba(3, 7, 18, 0.95) 100%),
+                radial-gradient(circle at top, rgba(125, 211, 252, 0.18), transparent 38%),
+                radial-gradient(circle at 20% 85%, rgba(134, 239, 172, 0.09), transparent 35%);
+        }
+
+        .container {
+            width: min(1120px, 92vw);
+            margin: 0 auto;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 12;
+            border-bottom: 1px solid transparent;
+            backdrop-filter: blur(14px);
+            background: linear-gradient(to bottom, rgba(3, 7, 18, 0.8), rgba(3, 7, 18, 0.4));
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .logo span {
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.4rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-weight: 500;
+            font-size: 0.92rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        main {
+            padding: 4.5rem 0 4rem;
+        }
+
+        .hero {
+            min-height: 68vh;
+            display: grid;
+            align-items: center;
+            gap: 1.8rem;
+            padding-bottom: 4rem;
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             font-size: 0.8rem;
-            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent);
+            border: 1px solid var(--border);
+            padding: 0.45rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(7, 15, 27, 0.7);
+            width: fit-content;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.15rem, 6vw, 4.4rem);
+            line-height: 1.08;
+            margin-top: 1.2rem;
+            max-width: 14ch;
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            max-width: 60ch;
+            font-size: 1.05rem;
+            margin-top: 1.3rem;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+        }
+
+        .btn {
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: 600;
+            padding: 0.85rem 1.2rem;
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(125, 211, 252, 0.7);
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, #0369a1, #0891b2);
+            color: #f8fafc;
+            border-color: transparent;
+            box-shadow: 0 12px 28px rgba(8, 145, 178, 0.33);
+        }
+
+        .btn-secondary {
+            background: rgba(8, 17, 31, 0.66);
             color: var(--text-main);
         }
 
-        /* Cards & Sections */
-        .custom-card {
-            background: var(--card-bg);
+        .stats-grid,
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-card,
+        .panel {
+            border: 1px solid var(--border);
+            background: var(--surface);
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.2s ease-in-out;
-        }
-        
-        .custom-card:hover {
-            transform: translateY(-5px);
+            box-shadow: var(--shadow);
         }
 
-        .contact-section {
-            background: #111827;
-            border-radius: 24px;
-            border: 1px dashed #334155;
+        .stat-card {
+            grid-column: span 4;
+            padding: 1.3rem;
         }
 
-        .nav-link {
-            color: var(--text-dim) !important;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+        .stat-card h3 {
+            font-size: 1.9rem;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
         }
 
-        .nav-link:hover {
-            color: var(--spring-green) !important;
-        }
-        
-        .text-dim {
+        .stat-card p {
             color: var(--text-dim);
+            font-size: 0.92rem;
+        }
+
+        section {
+            margin-top: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.55rem, 4vw, 2.2rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-dim);
+            max-width: 60ch;
+        }
+
+        .panel {
+            padding: 1.5rem;
+        }
+
+        .panel h3 {
+            margin-bottom: 0.6rem;
+            font-size: 1.2rem;
+        }
+
+        .panel p,
+        .panel li {
+            color: var(--text-dim);
+            line-height: 1.75;
+            font-size: 0.96rem;
+        }
+
+        .col-6 {
+            grid-column: span 6;
+        }
+
+        .col-4 {
+            grid-column: span 4;
+        }
+
+        .contact {
+            text-align: center;
+            background: var(--surface-strong);
+            padding: 2.5rem 1.5rem;
+        }
+
+        .contact a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            padding-top: 2.4rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.18);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .stat-card,
+            .col-6,
+            .col-4 {
+                grid-column: span 12;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-bottom: 2rem;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                justify-content: center;
+                padding: 0.9rem 0;
+            }
+
+            main {
+                padding-top: 2.2rem;
+            }
         }
     </style>
 </head>
 
 <body>
+    <canvas id="space-canvas" aria-hidden="true"></canvas>
+    <div class="space-overlay"></div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark py-4">
-        <div class="container">
-            <a class="navbar-brand logo" href="#">&lt;Aswin.java /&gt;</a>
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-lg-4 mt-3 mt-lg-0 text-center text-lg-start">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mailto:aswinsenthilkumarcse@gmail.com">Contact</a></li>
-                </ul>
+    <nav>
+        <div class="container nav-inner">
+            <a class="logo" href="#home"><span>ASWIN</span> · PORTFOLIO</a>
+            <div class="nav-links">
+                <a href="#vision">Vision</a>
+                <a href="#services">Focus</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <header id="about" class="py-5 my-md-5">
-            <div class="row align-items-center flex-column-reverse flex-md-row text-center text-md-start">
-                <div class="col-md-8 col-lg-8 mt-4 mt-md-0">
-                    <span class="custom-badge mb-3">Java Backend Developer</span>
-                    <h1 class="mb-4">Building real-world <span class="highlight">Spring Boot</span> backends.</h1>
-                    <p class="text-dim fs-5 mb-4 pe-lg-5">
-                        Hi, I'm <b>Aswin Senthilkumar</b>, a Computer Science student focused on backend development using Java and Spring Boot. I design clean REST APIs, implement database-driven systems, and build scalable backend applications aligned with real-world business workflows.
-                    </p>
-
-                    <div class="d-flex flex-wrap justify-content-center justify-content-md-start">
-                        <span class="tech-pill">Java</span>
-                        <span class="tech-pill">Spring Boot</span>
-                        <span class="tech-pill">Spring Data JPA</span>
-                        <span class="tech-pill">REST APIs</span>
-                        <span class="tech-pill">MySQL</span>
-                        <span class="tech-pill">Git</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-lg-4 d-flex justify-content-center justify-content-md-end">
-                    <img src="Aswin_Senthilkumar.png" alt="Aswin Senthilkumar" class="profile-img shadow-lg">
+    <main class="container" id="home">
+        <header class="hero">
+            <div>
+                <span class="kicker">Immersive Professional Portfolio</span>
+                <h1>A premium digital presence that flows through space.</h1>
+                <p>
+                    This is your new high-end foundation: clean messaging, cinematic motion, and a structure ready for your final content.
+                    We keep the experience simple and professional now, then layer your specific project and career details in the next phase.
+                </p>
+                <div class="cta-group">
+                    <a class="btn btn-primary" href="#services">Explore Structure</a>
+                    <a class="btn btn-secondary" href="#contact">Plan Content Phase</a>
                 </div>
             </div>
         </header>
 
-        <section id="projects" class="py-5 my-4">
-            <h2 class="section-title mb-5">Core Projects</h2>
-
-            <div class="row g-4">
-                <div class="col-12 col-lg-6">
-                    <div class="custom-card p-4 h-100">
-                        <h3 class="h5 mb-3 fw-bold">EKART – E-Commerce Backend (Spring Boot)</h3>
-                        <p class="text-dim mb-4">
-                            Developing a real-world e-commerce backend using Spring Boot. Implemented core modules such as product management, cart handling, and order processing following layered architecture. Designed RESTful APIs using Spring Data JPA for ORM and database persistence, focusing on scalability and real-world business logic.
-                        </p>
-                        <div>
-                            <span class="tech-pill">Spring Boot</span>
-                            <span class="tech-pill">JPA</span>
-                            <span class="tech-pill">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-6">
-                    <div class="custom-card p-4 h-100">
-                        <h3 class="h5 mb-3 fw-bold">Spring Boot Data JPA – CRUD App</h3>
-                        <p class="text-dim mb-4">
-                            Backend application demonstrating CRUD operations using Spring Data JPA. Configured database connectivity, designed entity relationships, and implemented repository interfaces following Spring conventions to showcase strong understanding of ORM and backend structure.
-                        </p>
-                        <div>
-                            <span class="tech-pill">Spring Data JPA</span>
-                            <span class="tech-pill">Hibernate</span>
-                            <span class="tech-pill">REST</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-6">
-                    <div class="custom-card p-4 h-100">
-                        <h3 class="h5 mb-3 fw-bold">Spring Boot Full-Stack Web App</h3>
-                        <p class="text-dim mb-4">
-                            Built a full-stack web application with Spring Boot backend and frontend integration. Developed REST endpoints, connected frontend components via HTTP request–response flow, and demonstrated complete data flow from database to user interface.
-                        </p>
-                        <div>
-                            <span class="tech-pill">Spring Boot</span>
-                            <span class="tech-pill">Frontend Integration</span>
-                        </div>
-                    </div>
-                </div>
+        <section>
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <h3>3D</h3>
+                    <p>Three.js starfield tunnel for a premium “flowing through space” feel.</p>
+                </article>
+                <article class="stat-card">
+                    <h3>Simple</h3>
+                    <p>Purposeful sections with minimal content placeholders and clear hierarchy.</p>
+                </article>
+                <article class="stat-card">
+                    <h3>Ready</h3>
+                    <p>Prepared for your detailed copy, achievements, and portfolio stories later.</p>
+                </article>
             </div>
         </section>
 
-        <section id="experience" class="py-5 my-4">
-            <h2 class="section-title mb-5">Experience</h2>
-
-            <div class="row g-4">
-                <div class="col-12">
-                    <div class="custom-card p-4 p-md-5">
-                        <h3 class="h5 mb-3 fw-bold">Software Development Intern</h3>
-                        <p class="text-dim mb-0">
-                            Worked on backend components in an enterprise environment. Assisted in developing and maintaining Windows Services using C# and .NET. Gained exposure to Microsoft Azure services and cloud-based workflows, while learning professional development practices, debugging, and deployment basics.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="custom-card p-4 p-md-5">
-                        <h3 class="h5 mb-3 fw-bold">Institution-Level Software Project</h3>
-                        <p class="text-dim mb-0">
-                            Contributed to institution-level software systems under the Technology Innovation Hub. Designed and developed a Discipline Management System using PHP, JavaScript, and MySQL with role-based access for faculty and administrators. Project planned for ERP integration, supporting real-world institutional workflows.
-                        </p>
-                    </div>
-                </div>
+        <section id="vision">
+            <div class="section-header">
+                <h2>Design Vision</h2>
+                <p>Professional tone + futuristic motion. Elegant typography and disciplined spacing keep it credible while the background animation creates a memorable experience.</p>
+            </div>
+            <div class="content-grid">
+                <article class="panel col-6">
+                    <h3>Visual Identity</h3>
+                    <p>Dark premium palette, calm cyan highlights, and polished glass-like surfaces position your personal brand as modern and technical without overloading the visitor.</p>
+                </article>
+                <article class="panel col-6">
+                    <h3>User Experience</h3>
+                    <p>The page is fast to scan, focused on intent, and sectioned for quick updates once you share exact project narratives, metrics, and career goals.</p>
+                </article>
             </div>
         </section>
 
-        <section class="contact-section text-center p-5 my-5">
-            <h2 class="fw-bold mb-3">Get In Touch</h2>
-            <p class="text-dim mb-4">
-                Open to backend roles, internships, and Java-focused discussions.
-            </p>
-            <a href="mailto:aswinsenthilkumarcse@gmail.com" class="highlight fs-4 text-decoration-none fw-semibold text-break">
-                aswinsenthilkumarcse@gmail.com
-            </a>
+        <section id="services">
+            <div class="section-header">
+                <h2>Simple Content Structure</h2>
+                <p>Placeholder copy for now. Plug your final details into these blocks when you are ready.</p>
+            </div>
+            <div class="content-grid">
+                <article class="panel col-4">
+                    <h3>01 · About</h3>
+                    <p>Short, sharp personal summary explaining who you are and what value you create.</p>
+                </article>
+                <article class="panel col-4">
+                    <h3>02 · Work</h3>
+                    <p>Case studies, architecture highlights, and measurable outcomes from your key projects.</p>
+                </article>
+                <article class="panel col-4">
+                    <h3>03 · Contact</h3>
+                    <p>A direct call-to-action for hiring managers, collaborators, and potential clients.</p>
+                </article>
+            </div>
         </section>
 
-        <footer class="text-center py-4 text-dim" style="font-size: 0.9rem;">
-            &copy; 2026 Aswin Senthilkumar &middot; Java & Spring Boot
+        <section id="roadmap">
+            <div class="section-header">
+                <h2>Next Step Roadmap</h2>
+                <p>Once you provide detailed content, we will refine the microcopy, project cards, and proof points for final launch quality.</p>
+            </div>
+            <article class="panel">
+                <ul>
+                    <li>Share your final bio, strengths, and role target.</li>
+                    <li>Add 3–5 top projects with stack, problem, and impact.</li>
+                    <li>Include resume, links, and preferred contact method.</li>
+                    <li>Polish SEO title/description and social preview assets.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="panel contact" id="contact">
+            <h2>Ready for the content phase.</h2>
+            <p>Send your exact details and I will convert this UI into a complete high-conversion portfolio.</p>
+            <a href="mailto:aswinsenthilkumarcse@gmail.com">aswinsenthilkumarcse@gmail.com</a>
+        </section>
+
+        <footer>
+            © 2026 Aswin Senthilkumar · Crafted with Three.js
         </footer>
+    </main>
 
-    </div>
+    <script type="module">
+        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js';
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        const canvas = document.getElementById('space-canvas');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const scene = new THREE.Scene();
 
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 3;
+
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const starCount = 2600;
+        const positions = new Float32Array(starCount * 3);
+        const velocities = new Float32Array(starCount);
+
+        for (let i = 0; i < starCount; i++) {
+            const i3 = i * 3;
+            positions[i3] = (Math.random() - 0.5) * 48;
+            positions[i3 + 1] = (Math.random() - 0.5) * 48;
+            positions[i3 + 2] = -Math.random() * 180;
+            velocities[i] = 0.18 + Math.random() * 0.25;
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const material = new THREE.PointsMaterial({
+            color: '#e2f3ff',
+            size: 0.08,
+            transparent: true,
+            opacity: 0.95,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
+        });
+
+        const stars = new THREE.Points(geometry, material);
+        scene.add(stars);
+
+        const clock = new THREE.Clock();
+        const pointer = { x: 0, y: 0 };
+
+        window.addEventListener('pointermove', (event) => {
+            pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+            pointer.y = (event.clientY / window.innerHeight) * 2 - 1;
+        });
+
+        function animate() {
+            const delta = clock.getDelta();
+            const pos = geometry.attributes.position.array;
+            const speedFactor = reducedMotion ? 0.4 : 1;
+
+            for (let i = 0; i < starCount; i++) {
+                const i3 = i * 3;
+                pos[i3 + 2] += velocities[i] * delta * 60 * speedFactor;
+                if (pos[i3 + 2] > 4) {
+                    pos[i3 + 2] = -180;
+                    pos[i3] = (Math.random() - 0.5) * 48;
+                    pos[i3 + 1] = (Math.random() - 0.5) * 48;
+                }
+            }
+
+            geometry.attributes.position.needsUpdate = true;
+            stars.rotation.z += 0.0005;
+            if (!reducedMotion) {
+                camera.position.x += (pointer.x * 0.28 - camera.position.x) * 0.04;
+                camera.position.y += (-pointer.y * 0.2 - camera.position.y) * 0.04;
+            }
+
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
 </body>
 
 </html>
